@@ -1,0 +1,5 @@
+/app/src/test/java/unpsjb/labprog/backend/steps/divisiones/RunDivisionTest.java
+/app/src/test/java/unpsjb/labprog/backend/steps/divisiones/DivisionSteps.java
+/app/src/test/java/unpsjb/labprog/backend/steps/personas/RunPersonaTest.java
+/app/src/test/java/unpsjb/labprog/backend/steps/personas/PersonaSteps.java
+/app/src/test/java/unpsjb/labprog/backend/config/CucumberSpringConfiguration.java

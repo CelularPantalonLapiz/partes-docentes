@@ -1,0 +1,16 @@
+
+.fa-pencil:hover {
+  color: #ffc107 !important; 
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+.fa-trash-can:hover {
+  color: #dc3545 !important; 
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 2px solid #000 !important;
+}

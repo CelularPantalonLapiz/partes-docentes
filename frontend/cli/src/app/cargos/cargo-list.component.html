@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-normal">Listado de Cargos - Escuela 775</h2>
+    <a [routerLink]="['/cargos', 'new']" class="btn btn-primary border border-dark rounded-0">
+      Nuevo Cargo
+    </a>
+  </div>
+
+  <table class="table table-bordered border-dark border-2 shadow-sm">
+    <thead class="table-light border-dark">
+      <tr>
+        <th class="border-dark">ID</th>
+        <th class="border-dark">Nombre</th>
+        <th class="border-dark">División (ID)</th> <th class="border-dark">Tipo</th>
+        <th class="border-dark">Carga Horaria</th>
+        <th class="border-dark">Fecha Inicio</th>
+        <th class="border-dark">Fecha Fin</th>
+        <th class="text-center border-dark">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+  <tr *ngFor="let cargo of resultsPage.content" class="align-middle">
+  <td class="border-dark">{{ cargo.id }}</td>
+  <td class="border-dark">{{ cargo.nombre }}</td>
+  <td class="border-dark">
+    {{ cargo.division ? (cargo.division.anio + '° ' + cargo.division.numDivision + 'ra') : 'Inst. (Sin división)' }}
+  </td>
+  
+  <td class="border-dark">{{ cargo.tipoDesignacion }}</td>
+  <td class="border-dark">{{ cargo.cargaHoraria }} hs</td>
+  <td class="border-dark">{{ cargo.fechaDesde | date:'dd/MM/yyyy' }}</td>
+  <td class="border-dark">{{ cargo.fechaHasta ? (cargo.fechaHasta | date:'dd/MM/yyyy') : '-' }}</td>
+  
+  <td class="text-center border-dark">
+    <a [routerLink]="['/cargos', cargo.id]" class="text-warning fs-5 me-3" title="Editar" style="cursor: pointer;">
+      <i class="fa-solid fa-pencil"></i>
+    </a>
+    <a (click)="cargo.id && borrarCargo(cargo.id)" class="text-danger fs-5" style="cursor: pointer;" title="Borrar">
+      <i class="fa-solid fa-trash-can"></i>
+    </a>
+  </td>
+</tr>
+</tbody>
+  </table>
+
+  <div class="d-flex justify-content-center mt-4">
+    <app-pagination
+      [totalPages]="resultsPage.totalPages"
+      [currentPage]="currentPage"
+      [number]="resultsPage.number"
+      (pageChangeResquest)="onPageChangeRequested($event)"
+      [hidden]="resultsPage.totalElements < 1"
+    ></app-pagination>
+  </div>
+</div>

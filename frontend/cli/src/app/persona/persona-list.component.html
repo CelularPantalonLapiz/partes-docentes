@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-normal">Listado de Docentes - Escuela 775</h2>
+    <a [routerLink]="['/personas', 'new']" class="btn btn-primary border border-dark rounded-0">
+      Nueva Persona
+    </a>
+  </div>
+
+  <table class="table table-bordered border-dark border-2 shadow-sm">
+    <thead class="table-light border-dark">
+      <tr>
+        <th class="border-dark">DNI</th>
+        <th class="border-dark">Apellido</th>
+        <th class="border-dark">Nombre</th>
+        <th class="border-dark">Título</th> <th class="text-center border-dark">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of resultsPage.content" class="align-middle">
+        <td class="border-dark">{{ p.dni }}</td>
+        <td class="border-dark">{{ p.apellido }}</td>
+        <td class="border-dark">{{ p.nombre }}</td>
+        <td class="border-dark">{{ p.titulo }}</td> <td class="text-center border-dark">
+          <a [routerLink]="['/personas', p.dni]" class="text-warning fs-5 me-3" title="Editar">
+            <i class="fa-solid fa-pencil"></i>
+          </a>
+          <a (click)="remove(p.dni)" class="text-danger fs-5" style="cursor: pointer;" title="Borrar">
+            <i class="fa-solid fa-trash-can"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center mt-4">
+    <app-pagination
+      [totalPages]="resultsPage.totalPages"
+      [currentPage]="currentPage"
+      [number]="resultsPage.number"
+      (pageChangeResquest)="onPageChangeRequested($event)"
+      [hidden]="resultsPage.totalElements < 1"
+    ></app-pagination>
+  </div>
+</div>

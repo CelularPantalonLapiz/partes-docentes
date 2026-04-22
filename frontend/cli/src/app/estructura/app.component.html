@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-dark border-2 py-3 mb-5">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    
+    <div class="d-flex align-items-center">
+      <span class="fs-2 me-4 fw-normal">Partes Docente</span>
+      
+      <div class="d-flex gap-2">
+        <div class="dropdown border border-dark rounded-0 bg-light">
+          <button class="btn dropdown-toggle px-3 py-1 rounded-0" type="button" data-bs-toggle="dropdown">
+            Personas
+          </button>
+          <ul class="dropdown-menu border-dark rounded-0 shadow-sm">
+            <li><a class="dropdown-item" routerLink="/personas">Listar</a></li>
+            <li><a class="dropdown-item" routerLink="/personas/new">Nuevo</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown border border-dark rounded-0 bg-light">
+          <button class="btn dropdown-toggle px-3 py-1 rounded-0" type="button" data-bs-toggle="dropdown">
+            Divisiones
+          </button>
+          <ul class="dropdown-menu border-dark rounded-0 shadow-sm">
+            <li><a class="dropdown-item" routerLink="/divisiones">Listar</a></li>
+            <li><a class="dropdown-item" routerLink="/divisiones/new">Nueva</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown border border-dark rounded-0 bg-light">
+          <button class="btn dropdown-toggle px-3 py-1 rounded-0" type="button" data-bs-toggle="dropdown">
+            Cargos
+          </button>
+          <ul class="dropdown-menu border-dark rounded-0 shadow-sm">
+            <li><a class="dropdown-item" routerLink="/cargos">Listar</a></li>
+            <li><a class="dropdown-item bg-secondary-subtle" routerLink="/cargos/new">Nuevo</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown border border-dark rounded-0 bg-light">
+          <button class="btn dropdown-toggle px-3 py-1 rounded-0" type="button" data-bs-toggle="dropdown">
+            Designación
+          </button>
+          <ul class="dropdown-menu border-dark rounded-0 shadow-sm">
+            <li><a class="dropdown-item" href="#">Listar</a></li>
+            <li><a class="dropdown-item" href="#">Nueva</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown border border-dark rounded-0 bg-light">
+          <button class="btn dropdown-toggle px-3 py-1 rounded-0" type="button" data-bs-toggle="dropdown">
+            Licencias
+          </button>
+          <ul class="dropdown-menu border-dark rounded-0 shadow-sm">
+            <li><a class="dropdown-item" href="#">Listar</a></li>
+            <li><a class="dropdown-item" href="#">Nueva</a></li>
+            <li><a class="dropdown-item bg-secondary-subtle" href="#">ParteDiario</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center fs-5">
+  <a routerLink="/" class="text-primary text-decoration-none">Home</a>
+  
+  <ng-container *ngIf="router.url.includes('personas')">
+    <i class="fa fa-chevron-right mx-2 small text-dark"></i>
+    <a routerLink="/personas" class="text-primary text-decoration-none">Personas</a>
+    <i class="fa fa-chevron-right mx-2 small text-dark"></i>
+    <span class="text-dark">
+      {{ router.url.endsWith('personas') ? 'Listar' : (router.url.includes('new') ? 'Nueva' : 'Editar') }}
+    </span>
+  </ng-container>
+
+  <ng-container *ngIf="router.url === '/' || router.url === '/home'">
+    <i class="fa fa-chevron-right mx-2 small text-dark"></i>
+    <span class="text-dark">Inicio</span>
+  </ng-container>
+</div>
+
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

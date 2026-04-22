@@ -1,0 +1,1167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="unpsjb.labprog.backend.RunCucumberTest" time="6.468" tests="12" errors="12" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/app/target/test-classes:/app/target/classes:/root/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.2.0/spring-boot-starter-web-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.0/spring-boot-starter-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot/3.2.0/spring-boot-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.0/spring-boot-autoconfigure-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.0/spring-boot-starter-logging-3.2.0.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/2.0.9/jul-to-slf4j-2.0.9.jar:/root/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/root/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.0/spring-boot-starter-json-3.2.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.2.0/spring-boot-starter-tomcat-3.2.0.jar:/root/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.16/tomcat-embed-core-10.1.16.jar:/root/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.16/tomcat-embed-el-10.1.16.jar:/root/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.16/tomcat-embed-websocket-10.1.16.jar:/root/.m2/repository/org/springframework/spring-web/6.1.1/spring-web-6.1.1.jar:/root/.m2/repository/org/springframework/spring-beans/6.1.1/spring-beans-6.1.1.jar:/root/.m2/repository/io/micrometer/micrometer-observation/1.12.0/micrometer-observation-1.12.0.jar:/root/.m2/repository/io/micrometer/micrometer-commons/1.12.0/micrometer-commons-1.12.0.jar:/root/.m2/repository/org/springframework/spring-webmvc/6.1.1/spring-webmvc-6.1.1.jar:/root/.m2/repository/org/springframework/spring-aop/6.1.1/spring-aop-6.1.1.jar:/root/.m2/repository/org/springframework/spring-context/6.1.1/spring-context-6.1.1.jar:/root/.m2/repository/org/springframework/spring-expression/6.1.1/spring-expression-6.1.1.jar:/root/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.2.0/spring-boot-starter-data-jpa-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.2.0/spring-boot-starter-aop-3.2.0.jar:/root/.m2/repository/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.2.0/spring-boot-starter-jdbc-3.2.0.jar:/root/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/root/.m2/repository/org/springframework/spring-jdbc/6.1.1/spring-jdbc-6.1.1.jar:/root/.m2/repository/org/hibernate/orm/hibernate-core/6.3.1.Final/hibernate-core-6.3.1.Final.jar:/root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/root/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/root/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/root/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/root/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/root/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.10/byte-buddy-1.14.10.jar:/root/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.4/jaxb-runtime-4.0.4.jar:/root/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.4/jaxb-core-4.0.4.jar:/root/.m2/repository/org/eclipse/angus/angus-activation/2.0.1/angus-activation-2.0.1.jar:/root/.m2/repository/org/glassfish/jaxb/txw2/4.0.4/txw2-4.0.4.jar:/root/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/root/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/root/.m2/repository/org/antlr/antlr4-runtime/4.10.1/antlr4-runtime-4.10.1.jar:/root/.m2/repository/org/springframework/data/spring-data-jpa/3.2.0/spring-data-jpa-3.2.0.jar:/root/.m2/repository/org/springframework/data/spring-data-commons/3.2.0/spring-data-commons-3.2.0.jar:/root/.m2/repository/org/springframework/spring-orm/6.1.1/spring-orm-6.1.1.jar:/root/.m2/repository/org/springframework/spring-tx/6.1.1/spring-tx-6.1.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/root/.m2/repository/org/springframework/spring-aspects/6.1.1/spring-aspects-6.1.1.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.10.1/junit-vintage-engine-5.10.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/io/cucumber/cucumber-java/7.15.0/cucumber-java-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-core/7.15.0/cucumber-core-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-gherkin/7.15.0/cucumber-gherkin-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.15.0/cucumber-gherkin-messages-7.15.0.jar:/root/.m2/repository/io/cucumber/gherkin/26.2.0/gherkin-26.2.0.jar:/root/.m2/repository/io/cucumber/messages/22.0.0/messages-22.0.0.jar:/root/.m2/repository/io/cucumber/tag-expressions/6.0.0/tag-expressions-6.0.0.jar:/root/.m2/repository/io/cucumber/cucumber-expressions/17.0.1/cucumber-expressions-17.0.1.jar:/root/.m2/repository/io/cucumber/datatable/7.15.0/datatable-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-plugin/7.15.0/cucumber-plugin-7.15.0.jar:/root/.m2/repository/io/cucumber/docstring/7.15.0/docstring-7.15.0.jar:/root/.m2/repository/io/cucumber/html-formatter/20.4.0/html-formatter-20.4.0.jar:/root/.m2/repository/io/cucumber/junit-xml-formatter/0.2.0/junit-xml-formatter-0.2.0.jar:/root/.m2/repository/io/cucumber/ci-environment/10.0.0/ci-environment-10.0.0.jar:/root/.m2/repository/io/cucumber/cucumber-junit/7.15.0/cucumber-junit-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-spring/7.15.0/cucumber-spring-7.15.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.0/spring-boot-starter-test-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-test/3.2.0/spring-boot-test-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.0/spring-boot-test-autoconfigure-3.2.0.jar:/root/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/root/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/root/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/root/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/root/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.10/byte-buddy-agent-1.14.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/root/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/root/.m2/repository/org/springframework/spring-core/6.1.1/spring-core-6.1.1.jar:/root/.m2/repository/org/springframework/spring-jcl/6.1.1/spring-jcl-6.1.1.jar:/root/.m2/repository/org/springframework/spring-test/6.1.1/spring-test-6.1.1.jar:/root/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="GMT"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/opt/java/openjdk/lib"/>
+    <property name="sun.java.command" value="/app/target/surefire/surefirebooter-20260421164455569_3.jar /app/target/surefire 2026-04-21T16-44-55_456-jvmRun1 surefire-20260421164455569_1tmp surefire_0-20260421164455569_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/app/target/test-classes:/app/target/classes:/root/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.2.0/spring-boot-starter-web-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.0/spring-boot-starter-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot/3.2.0/spring-boot-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.0/spring-boot-autoconfigure-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.0/spring-boot-starter-logging-3.2.0.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/2.0.9/jul-to-slf4j-2.0.9.jar:/root/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/root/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.0/spring-boot-starter-json-3.2.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/root/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.2.0/spring-boot-starter-tomcat-3.2.0.jar:/root/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.16/tomcat-embed-core-10.1.16.jar:/root/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.16/tomcat-embed-el-10.1.16.jar:/root/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.16/tomcat-embed-websocket-10.1.16.jar:/root/.m2/repository/org/springframework/spring-web/6.1.1/spring-web-6.1.1.jar:/root/.m2/repository/org/springframework/spring-beans/6.1.1/spring-beans-6.1.1.jar:/root/.m2/repository/io/micrometer/micrometer-observation/1.12.0/micrometer-observation-1.12.0.jar:/root/.m2/repository/io/micrometer/micrometer-commons/1.12.0/micrometer-commons-1.12.0.jar:/root/.m2/repository/org/springframework/spring-webmvc/6.1.1/spring-webmvc-6.1.1.jar:/root/.m2/repository/org/springframework/spring-aop/6.1.1/spring-aop-6.1.1.jar:/root/.m2/repository/org/springframework/spring-context/6.1.1/spring-context-6.1.1.jar:/root/.m2/repository/org/springframework/spring-expression/6.1.1/spring-expression-6.1.1.jar:/root/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.2.0/spring-boot-starter-data-jpa-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.2.0/spring-boot-starter-aop-3.2.0.jar:/root/.m2/repository/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.2.0/spring-boot-starter-jdbc-3.2.0.jar:/root/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/root/.m2/repository/org/springframework/spring-jdbc/6.1.1/spring-jdbc-6.1.1.jar:/root/.m2/repository/org/hibernate/orm/hibernate-core/6.3.1.Final/hibernate-core-6.3.1.Final.jar:/root/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/root/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/root/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/root/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/root/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/root/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.14.10/byte-buddy-1.14.10.jar:/root/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.4/jaxb-runtime-4.0.4.jar:/root/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.4/jaxb-core-4.0.4.jar:/root/.m2/repository/org/eclipse/angus/angus-activation/2.0.1/angus-activation-2.0.1.jar:/root/.m2/repository/org/glassfish/jaxb/txw2/4.0.4/txw2-4.0.4.jar:/root/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/root/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/root/.m2/repository/org/antlr/antlr4-runtime/4.10.1/antlr4-runtime-4.10.1.jar:/root/.m2/repository/org/springframework/data/spring-data-jpa/3.2.0/spring-data-jpa-3.2.0.jar:/root/.m2/repository/org/springframework/data/spring-data-commons/3.2.0/spring-data-commons-3.2.0.jar:/root/.m2/repository/org/springframework/spring-orm/6.1.1/spring-orm-6.1.1.jar:/root/.m2/repository/org/springframework/spring-tx/6.1.1/spring-tx-6.1.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/root/.m2/repository/org/springframework/spring-aspects/6.1.1/spring-aspects-6.1.1.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/root/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.10.1/junit-vintage-engine-5.10.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/io/cucumber/cucumber-java/7.15.0/cucumber-java-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-core/7.15.0/cucumber-core-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-gherkin/7.15.0/cucumber-gherkin-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.15.0/cucumber-gherkin-messages-7.15.0.jar:/root/.m2/repository/io/cucumber/gherkin/26.2.0/gherkin-26.2.0.jar:/root/.m2/repository/io/cucumber/messages/22.0.0/messages-22.0.0.jar:/root/.m2/repository/io/cucumber/tag-expressions/6.0.0/tag-expressions-6.0.0.jar:/root/.m2/repository/io/cucumber/cucumber-expressions/17.0.1/cucumber-expressions-17.0.1.jar:/root/.m2/repository/io/cucumber/datatable/7.15.0/datatable-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-plugin/7.15.0/cucumber-plugin-7.15.0.jar:/root/.m2/repository/io/cucumber/docstring/7.15.0/docstring-7.15.0.jar:/root/.m2/repository/io/cucumber/html-formatter/20.4.0/html-formatter-20.4.0.jar:/root/.m2/repository/io/cucumber/junit-xml-formatter/0.2.0/junit-xml-formatter-0.2.0.jar:/root/.m2/repository/io/cucumber/ci-environment/10.0.0/ci-environment-10.0.0.jar:/root/.m2/repository/io/cucumber/cucumber-junit/7.15.0/cucumber-junit-7.15.0.jar:/root/.m2/repository/io/cucumber/cucumber-spring/7.15.0/cucumber-spring-7.15.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.0/spring-boot-starter-test-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-test/3.2.0/spring-boot-test-3.2.0.jar:/root/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.0/spring-boot-test-autoconfigure-3.2.0.jar:/root/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/root/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/root/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/root/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/root/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/root/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.10/byte-buddy-agent-1.14.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/root/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/root/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/root/.m2/repository/org/springframework/spring-core/6.1.1/spring-core-6.1.1.jar:/root/.m2/repository/org/springframework/spring-jcl/6.1.1/spring-jcl-6.1.1.jar:/root/.m2/repository/org/springframework/spring-test/6.1.1/spring-test-6.1.1.jar:/root/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/root"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-01-20"/>
+    <property name="java.home" value="/opt/java/openjdk"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/app"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="/app/target/surefire/surefirebooter-20260421164455569_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.18+8"/>
+    <property name="user.name" value="root"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.17.0-20-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-17.0.18+8"/>
+    <property name="localRepository" value="/root/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="17.0.18"/>
+    <property name="user.dir" value="/app"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="476"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/opt/java/openjdk/lib/server:/opt/java/openjdk/lib:/opt/java/openjdk/../lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="17.0.18+8"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="ingresar nueva división #1" classname="Gestión de divisiones" time="6.07">
+    <error message="No enum constant unpsjb.labprog.backend.model.Turno.MANANA" type="java.lang.IllegalArgumentException"><![CDATA[java.lang.IllegalArgumentException: No enum constant unpsjb.labprog.backend.model.Turno.MANANA
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at unpsjb.labprog.backend.model.Turno.valueOf(Turno.java:3)
+	at unpsjb.labprog.backend.DivisionSteps.crearDivision(DivisionSteps.java:27)
+	at ✽.el espacio físico división con 5 2 "Biológicas" "MANANA"(file:///app/src/test/resources/features/divisiones.feature:6)
+]]></error>
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-04-21T16:44:57.333Z  INFO 476 --- [           main] unpsjb.labprog.backend.PersonaSteps      : Starting PersonaSteps using Java 17.0.18 with PID 476 (started by root in /app)
+2026-04-21T16:44:57.337Z  INFO 476 --- [           main] unpsjb.labprog.backend.PersonaSteps      : No active profile set, falling back to 1 default profile: "default"
+2026-04-21T16:44:58.107Z  INFO 476 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-21T16:44:58.182Z  INFO 476 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 6 JPA repository interfaces.
+2026-04-21T16:44:58.734Z  INFO 476 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-21T16:44:58.807Z  INFO 476 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-21T16:44:58.850Z  INFO 476 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-21T16:44:59.144Z  INFO 476 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-21T16:44:59.183Z  INFO 476 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-21T16:44:59.438Z  INFO 476 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-04-21T16:44:59.440Z  INFO 476 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-21T16:44:59.471Z  WARN 476 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-21T16:45:00.572Z  INFO 476 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: drop table if exists articulo_licencia cascade 
+Hibernate: drop table if exists cargo cascade 
+Hibernate: drop table if exists cargo_horarios cascade 
+Hibernate: drop table if exists designacion cascade 
+Hibernate: drop table if exists division cascade 
+Hibernate: drop table if exists horario cascade 
+Hibernate: drop table if exists licencia cascade 
+Hibernate: drop table if exists licencia_designaciones cascade 
+Hibernate: drop table if exists persona cascade 
+Hibernate: drop sequence if exists designacion_seq
+Hibernate: drop sequence if exists division_seq
+Hibernate: drop sequence if exists horario_seq
+Hibernate: drop sequence if exists licencia_seq
+Hibernate: create sequence designacion_seq start with 1 increment by 50
+Hibernate: create sequence division_seq start with 1 increment by 50
+Hibernate: create sequence horario_seq start with 1 increment by 50
+Hibernate: create sequence licencia_seq start with 1 increment by 50
+Hibernate: create table articulo_licencia (articulo varchar(255) not null, descripcion varchar(255), primary key (articulo))
+Hibernate: create table cargo (carga_horaria integer not null, fecha_fin time(6), fecha_inicio time(6), division_id bigint, id bigint generated by default as identity, nombre varchar(255), tipo varchar(255) check (tipo in ('CARGO','ESPACIO_CURRICULAR')), primary key (id))
+Hibernate: create table cargo_horarios (cargo_id bigint not null, horarios_id bigint not null unique)
+Hibernate: create table designacion (fecha_fin time(6), fecha_inicio time(6), cargo_id bigint, id bigint not null, persona_dni bigint, situacion_revista varchar(255), primary key (id))
+Hibernate: create table division (anio integer not null, num_division integer not null, id bigint not null, orientacion varchar(255), turno varchar(255) check (turno in ('MAÑANA','TARDE','VESPERTINO','NOCHE')), primary key (id))
+Hibernate: create table horario (hora integer not null, id bigint not null, dia varchar(255), primary key (id))
+Hibernate: create table licencia (certificado_medico boolean not null, id bigint not null, pedido_desde timestamp(6), pedido_hasta timestamp(6), persona_dni bigint, articulo_articulo varchar(255), domicilio varchar(255), primary key (id))
+Hibernate: create table licencia_designaciones (designaciones_id bigint not null, licencia_id bigint not null)
+Hibernate: create table persona (dni bigint not null, apellido varchar(255), cuil varchar(255), domicilio varchar(255), nombre varchar(255), sexo varchar(255), telefono varchar(255), titulo varchar(255), primary key (dni))
+Hibernate: alter table if exists cargo add constraint FKebbagrctx8soyjjsgo3ktg2xq foreign key (division_id) references division
+Hibernate: alter table if exists cargo_horarios add constraint FKdep6onf4jjdow2f4s18iobxdp foreign key (horarios_id) references horario
+Hibernate: alter table if exists cargo_horarios add constraint FKgxxhjy0ojrfqyua57a2t7s58b foreign key (cargo_id) references cargo
+Hibernate: alter table if exists designacion add constraint FKt6j9m941x9spnt297m8fkn41l foreign key (cargo_id) references cargo
+Hibernate: alter table if exists designacion add constraint FKgasi6cq9knjf3su293r6g12d4 foreign key (persona_dni) references persona
+Hibernate: alter table if exists licencia add constraint FKp2uvpvh6hi93qpk0o6wxnnoxa foreign key (articulo_articulo) references articulo_licencia
+Hibernate: alter table if exists licencia add constraint FKmtx3x6hogxb1omv8m0o0acdfq foreign key (persona_dni) references persona
+Hibernate: alter table if exists licencia_designaciones add constraint FKrr4ecyoaf9atu29hidr07o385 foreign key (designaciones_id) references designacion
+Hibernate: alter table if exists licencia_designaciones add constraint FKs08j1e9ioevvlau66go4kff8d foreign key (licencia_id) references licencia
+2026-04-21T16:45:00.656Z  INFO 476 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-21T16:45:00.932Z  INFO 476 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-21T16:45:01.871Z  WARN 476 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-21T16:45:02.344Z  INFO 476 --- [           main] unpsjb.labprog.backend.PersonaSteps      : Started PersonaSteps in 5.286 seconds (process running for 6.686)
+
+Esquema del escenario: ingresar nueva división                                                   &amp#27;[90m# src/test/resources/features/divisiones.feature:12&amp#27;[0m
+  &amp#27;[31mDado &amp#27;[0m&amp#27;[31mel espacio físico división con &amp#27;[0m&amp#27;[31m&amp#27;[1m5&amp#27;[0m&amp#27;[31m &amp#27;[0m&amp#27;[31m&amp#27;[1m2&amp#27;[0m&amp#27;[31m &amp#27;[0m&amp#27;[31m&amp#27;[1m"Biológicas"&amp#27;[0m&amp#27;[31m &amp#27;[0m&amp#27;[31m&amp#27;[1m"MANANA"&amp#27;[0m                                  &amp#27;[90m# unpsjb.labprog.backend.DivisionSteps.crearDivision(int,int,java.lang.String,java.lang.String)&amp#27;[0m
+      &amp#27;[31mjava.lang.IllegalArgumentException: No enum constant unpsjb.labprog.backend.model.Turno.MANANA
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at unpsjb.labprog.backend.model.Turno.valueOf(Turno.java:3)
+	at unpsjb.labprog.backend.DivisionSteps.crearDivision(DivisionSteps.java:27)
+	at ✽.el espacio físico división con 5 2 "Biológicas" "MANANA"(file:///app/src/test/resources/features/divisiones.feature:6)
+&amp#27;[0m
+  &amp#27;[36mCuando &amp#27;[0m&amp#27;[36mse presiona el botón de guardar&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la División 5º 2º turno Mañana ingresada correctamente&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nueva división #2" classname="Gestión de divisiones" time="0.015">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nueva división                                                  &amp#27;[90m# src/test/resources/features/divisiones.feature:13&amp#27;[0m
+  &amp#27;[32mDado &amp#27;[0m&amp#27;[32mel espacio físico división con &amp#27;[0m&amp#27;[32m&amp#27;[1m3&amp#27;[0m&amp#27;[32m &amp#27;[0m&amp#27;[32m&amp#27;[1m1&amp#27;[0m&amp#27;[32m &amp#27;[0m&amp#27;[32m&amp#27;[1m"Sociales"&amp#27;[0m&amp#27;[32m &amp#27;[0m&amp#27;[32m&amp#27;[1m"TARDE"&amp#27;[0m                                    &amp#27;[90m# unpsjb.labprog.backend.DivisionSteps.crearDivision(int,int,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la División 3º 1º turno Tarde ingresada correctamente&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nueva división #3" classname="Gestión de divisiones" time="0.012">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nueva división                                                  &amp#27;[90m# src/test/resources/features/divisiones.feature:14&amp#27;[0m
+  &amp#27;[32mDado &amp#27;[0m&amp#27;[32mel espacio físico división con &amp#27;[0m&amp#27;[32m&amp#27;[1m3&amp#27;[0m&amp#27;[32m &amp#27;[0m&amp#27;[32m&amp#27;[1m1&amp#27;[0m&amp#27;[32m &amp#27;[0m&amp#27;[32m&amp#27;[1m"Sociales"&amp#27;[0m&amp#27;[32m &amp#27;[0m&amp#27;[32m&amp#27;[1m"TARDE"&amp#27;[0m                                    &amp#27;[90m# unpsjb.labprog.backend.DivisionSteps.crearDivision(int,int,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la División 3º 1º turno Tarde ingresada correctamente&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nuevas personas #1" classname="Gestión de personas" time="0.011">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nuevas personas                                                                             &amp#27;[90m# src/test/resources/features/personas.feature:13&amp#27;[0m
+  &amp#27;[32mDada &amp#27;[0m&amp#27;[32mla persona con "&amp#27;[0m&amp#27;[32m&amp#27;[1mAlberto&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mLopez&amp#27;[0m&amp#27;[32m" &amp#27;[0m&amp#27;[32m&amp#27;[1m10100100&amp#27;[0m&amp#27;[32m "&amp#27;[0m&amp#27;[32m&amp#27;[1m27101001009&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mM&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mProfesor de Biología&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mCharcas 54&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m+54 (280) 411-1111&amp#27;[0m&amp#27;[32m"&amp#27;[0m &amp#27;[90m# unpsjb.labprog.backend.PersonaSteps.la_persona_con(java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la "Alberto Lopez con DNI 10100100 ingresado/a correctamente"&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nuevas personas #2" classname="Gestión de personas" time="0.01">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nuevas personas                                                                              &amp#27;[90m# src/test/resources/features/personas.feature:14&amp#27;[0m
+  &amp#27;[32mDada &amp#27;[0m&amp#27;[32mla persona con "&amp#27;[0m&amp#27;[32m&amp#27;[1mSusana&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mÁlvarez&amp#27;[0m&amp#27;[32m" &amp#27;[0m&amp#27;[32m&amp#27;[1m20200200&amp#27;[0m&amp#27;[32m "&amp#27;[0m&amp#27;[32m&amp#27;[1m20202002009&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mF&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mProfesora de historia&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mMitre 154&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m+54 (280) 422-2222&amp#27;[0m&amp#27;[32m"&amp#27;[0m &amp#27;[90m# unpsjb.labprog.backend.PersonaSteps.la_persona_con(java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la "Susana Álvarez con DNI 20200200 ingresado/a correctamente"&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nuevas personas #3" classname="Gestión de personas" time="0.01">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nuevas personas                                                         &amp#27;[90m# src/test/resources/features/personas.feature:15&amp#27;[0m
+  &amp#27;[32mDada &amp#27;[0m&amp#27;[32mla persona con "&amp#27;[0m&amp#27;[32m&amp#27;[1mPedro&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mBenítez&amp#27;[0m&amp#27;[32m" &amp#27;[0m&amp#27;[32m&amp#27;[1m30300300&amp#27;[0m&amp#27;[32m "&amp#27;[0m&amp#27;[32m&amp#27;[1m27303003009&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mM&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mJujuy 255&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m+54 (280) 433-3333&amp#27;[0m&amp#27;[32m"&amp#27;[0m  &amp#27;[90m# unpsjb.labprog.backend.PersonaSteps.la_persona_con(java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la "Pedro Benítez con DNI 30300300 ingresado/a correctamente"&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nuevas personas #4" classname="Gestión de personas" time="0.009">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nuevas personas                                                                                 &amp#27;[90m# src/test/resources/features/personas.feature:16&amp#27;[0m
+  &amp#27;[32mDada &amp#27;[0m&amp#27;[32mla persona con "&amp#27;[0m&amp#27;[32m&amp#27;[1mMarisa&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mAmuchástegui&amp#27;[0m&amp#27;[32m" &amp#27;[0m&amp#27;[32m&amp#27;[1m40400400&amp#27;[0m&amp#27;[32m "&amp#27;[0m&amp#27;[32m&amp#27;[1m20404004009&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mF&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mProfesora de historia&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mZar 555&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m+54 (280) 444-4444&amp#27;[0m&amp#27;[32m"&amp#27;[0m &amp#27;[90m# unpsjb.labprog.backend.PersonaSteps.la_persona_con(java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la "Marisa Amuchástegui con DNI 40400400 ingresado/a correctamente"&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nuevas personas #5" classname="Gestión de personas" time="0.012">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nuevas personas                                                                          &amp#27;[90m# src/test/resources/features/personas.feature:17&amp#27;[0m
+  &amp#27;[32mDada &amp#27;[0m&amp#27;[32mla persona con "&amp#27;[0m&amp#27;[32m&amp#27;[1mRaúl&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mGómez&amp#27;[0m&amp#27;[32m" &amp#27;[0m&amp#27;[32m&amp#27;[1m50500500&amp#27;[0m&amp#27;[32m "&amp#27;[0m&amp#27;[32m&amp#27;[1m27505005009&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mM&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mProfesor de Geografía&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mRoca 2458&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m+54 (280) 455-5555&amp#27;[0m&amp#27;[32m"&amp#27;[0m &amp#27;[90m# unpsjb.labprog.backend.PersonaSteps.la_persona_con(java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la "Raúl Gómez con DNI 50500500 ingresado/a correctamente"&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nuevas personas #6" classname="Gestión de personas" time="0.009">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nuevas personas                                                                                &amp#27;[90m# src/test/resources/features/personas.feature:18&amp#27;[0m
+  &amp#27;[32mDada &amp#27;[0m&amp#27;[32mla persona con "&amp#27;[0m&amp#27;[32m&amp#27;[1mInés&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mTorres&amp#27;[0m&amp#27;[32m" &amp#27;[0m&amp#27;[32m&amp#27;[1m60600600&amp#27;[0m&amp#27;[32m "&amp#27;[0m&amp#27;[32m&amp#27;[1m20606006009&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mF&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mLicenciada en Geografía&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mLa Pampa 322&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m+54 (280) 466-6666&amp#27;[0m&amp#27;[32m"&amp#27;[0m &amp#27;[90m# unpsjb.labprog.backend.PersonaSteps.la_persona_con(java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la "Inés Torres con DNI 60600600 ingresado/a correctamente"&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nuevas personas #7" classname="Gestión de personas" time="0.01">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nuevas personas                                                        &amp#27;[90m# src/test/resources/features/personas.feature:19&amp#27;[0m
+  &amp#27;[32mDada &amp#27;[0m&amp#27;[32mla persona con "&amp#27;[0m&amp#27;[32m&amp#27;[1mJorge&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mDismal&amp#27;[0m&amp#27;[32m" &amp#27;[0m&amp#27;[32m&amp#27;[1m70700700&amp#27;[0m&amp#27;[32m "&amp#27;[0m&amp#27;[32m&amp#27;[1m27707007009&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mM&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mMitre 1855&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m+54 (280) 477-7777&amp#27;[0m&amp#27;[32m"&amp#27;[0m &amp#27;[90m# unpsjb.labprog.backend.PersonaSteps.la_persona_con(java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la "Jorge Dismal con DNI 70700700 ingresado/a correctamente"&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nuevas personas #8" classname="Gestión de personas" time="0.009">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nuevas personas                                                                           &amp#27;[90m# src/test/resources/features/personas.feature:20&amp#27;[0m
+  &amp#27;[32mDada &amp#27;[0m&amp#27;[32mla persona con "&amp#27;[0m&amp#27;[32m&amp#27;[1mRosalía&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mFernandez&amp#27;[0m&amp#27;[32m" &amp#27;[0m&amp#27;[32m&amp#27;[1m20000000&amp#27;[0m&amp#27;[32m "&amp#27;[0m&amp#27;[32m&amp#27;[1m20200000009&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mF&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mMaestra de grado&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mMaiz 356&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m+54 (280) 420-0000&amp#27;[0m&amp#27;[32m"&amp#27;[0m &amp#27;[90m# unpsjb.labprog.backend.PersonaSteps.la_persona_con(java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la "Rosalía Fernandez con DNI 20000000 ingresado/a correctamente"&amp#27;[0m
+]]></system-out>
+  </testcase>
+  <testcase name="ingresar nuevas personas #9" classname="Gestión de personas" time="0.009">
+    <error message="&quot;se presiona el botón de guardar&quot; matches more than one step definition:&#10;  &quot;^se presiona el botón de guardar$&quot; in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()&#10;  &quot;se presiona el botón de guardar&quot; in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()" type="io.cucumber.core.runner.AmbiguousStepDefinitionsException"><![CDATA[io.cucumber.core.runner.AmbiguousStepDefinitionsException: 
+"se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+]]></error>
+    <system-out><![CDATA[
+Esquema del escenario: ingresar nuevas personas                                                                      &amp#27;[90m# src/test/resources/features/personas.feature:21&amp#27;[0m
+  &amp#27;[32mDada &amp#27;[0m&amp#27;[32mla persona con "&amp#27;[0m&amp#27;[32m&amp#27;[1mAnalía&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mRojas&amp#27;[0m&amp#27;[32m" &amp#27;[0m&amp#27;[32m&amp#27;[1m80800800&amp#27;[0m&amp#27;[32m "&amp#27;[0m&amp#27;[32m&amp#27;[1m20808008009&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mF&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mTécnica superior&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1mRosa 556&amp#27;[0m&amp#27;[32m" "&amp#27;[0m&amp#27;[32m&amp#27;[1m+54 (280) 488-8888&amp#27;[0m&amp#27;[32m"&amp#27;[0m &amp#27;[90m# unpsjb.labprog.backend.PersonaSteps.la_persona_con(java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)&amp#27;[0m
+  &amp#27;[31mCuando &amp#27;[0m&amp#27;[31mse presiona el botón de guardar&amp#27;[0m
+      &amp#27;[31mio.cucumber.core.runner.AmbiguousStepDefinitionsException: "se presiona el botón de guardar" matches more than one step definition:
+  "^se presiona el botón de guardar$" in unpsjb.labprog.backend.PersonaSteps.se_presiona_el_boton_de_guardar()
+  "se presiona el botón de guardar" in unpsjb.labprog.backend.DivisionSteps.presionarGuardar()
+	at io.cucumber.core.runner.CachingGlue.findStepDefinitionMatch(CachingGlue.java:406)
+	at io.cucumber.core.runner.CachingGlue.stepDefinitionMatch(CachingGlue.java:374)
+	at io.cucumber.core.runner.Runner.matchStepToStepDefinition(Runner.java:183)
+	at io.cucumber.core.runner.Runner.createTestStepsForPickleSteps(Runner.java:163)
+	at io.cucumber.core.runner.Runner.createTestCaseForPickle(Runner.java:146)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:74)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.lambda$run$0(PickleRunners.java:151)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:148)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:196)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:89)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:148)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:163)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:146)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:226)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+&amp#27;[0m
+  &amp#27;[36mEntonces &amp#27;[0m&amp#27;[36mse espera el siguiente 200 con la "Analía Rojas con DNI 80800800 ingresado/a correctamente"&amp#27;[0m
+]]></system-out>
+  </testcase>
+</testsuite>

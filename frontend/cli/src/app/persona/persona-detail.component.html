@@ -1,0 +1,63 @@
+<div class="container mt-4" *ngIf="persona">
+  <div class="d-flex align-items-center mb-5">
+    <h2 class="me-5 fw-normal mb-0">
+      {{ persona.dni > 0 && !router.url.includes('new') ? "Editar" : "Nueva" }} Persona
+    </h2>
+    <button 
+      (click)="save()" 
+      [disabled]="!isFormValid()"
+      class="btn btn-success border border-dark border-2 rounded-pill px-4 me-3 py-2 text-white fw-bold" 
+      [style.opacity]="isFormValid() ? '1' : '0.5'"
+      style="background-color: #a3cf95; color: black !important;">
+      Guardar
+    </button>
+    
+    <button (click)="goBack()" class="btn btn-danger border border-dark border-2 rounded-pill px-4 py-2 text-white fw-bold" style="background-color: 
+      #d195a3; color: black !important;">
+      Cancelar
+    </button>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6 d-flex align-items-center">
+      <span class="badge bg-secondary me-2 p-2 fs-6 border border-dark rounded-1" style="min-width: 90px; background-color: #999 !important;">DNI</span>
+      <input type="number" class="form-control border-dark border-2 rounded-0 bg-light" [(ngModel)]="persona.dni" 
+             [disabled]="persona.dni > 0 && !router.url.includes('new')" placeholder="10100100">
+    </div>
+
+    <div class="col-md-6 d-flex align-items-center">
+      <span class="badge bg-secondary me-2 p-2 fs-6 border border-dark rounded-1" style="min-width: 90px; background-color: #999 !important;">Nombre</span>
+      <input type="text" class="form-control border-dark border-2 rounded-0" [(ngModel)]="persona.nombre" placeholder="Alberto">
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <span class="badge bg-secondary me-2 p-2 fs-6 border border-dark rounded-1" style="min-width: 90px; background-color: #999 !important;">Apellido</span>
+      <input type="text" class="form-control border-dark border-2 rounded-0" [(ngModel)]="persona.apellido" placeholder="Lopez">
+    </div>
+
+    <div class="col-md-6 d-flex align-items-center">
+      <span class="badge bg-secondary me-2 p-2 fs-6 border border-dark rounded-1" style="min-width: 90px; background-color: #999 !important;">CUIT</span>
+      <input type="text" class="form-control border-dark border-2 rounded-0" [(ngModel)]="persona.cuil" placeholder="27-10100100-9">
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <span class="badge bg-secondary me-2 p-2 fs-6 border border-dark rounded-1" style="min-width: 90px; background-color: #999 !important;">Sexo</span>
+      <select class="form-select border-dark border-2 rounded-0" [(ngModel)]="persona.sexo">
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+
+    <div class="col-md-6 d-flex align-items-center">
+      <span class="badge bg-secondary me-2 p-2 fs-6 border border-dark rounded-1" style="min-width: 90px; background-color: #999 !important;">Título</span>
+      <input type="text" class="form-control border-dark border-2 rounded-0" [(ngModel)]="persona.titulo" placeholder="Profesor de Biología">
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <span class="badge bg-secondary me-2 p-2 fs-6 border border-dark rounded-1" style="min-width: 90px; background-color: #999 !important;">Domicilio</span>
+      <input type="text" class="form-control border-dark border-2 rounded-0" [(ngModel)]="persona.domicilio" placeholder="Charcas 54">
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <span class="badge bg-secondary me-2 p-2 fs-6 border border-dark rounded-1" style="min-width: 90px; background-color: #999 !important;">Teléfono</span>
+      <input type="text" class="form-control border-dark border-2 rounded-0" [(ngModel)]="persona.telefono" placeholder="+54 (280) 433-4444">
+    </div>
+  </div>
+</div>
