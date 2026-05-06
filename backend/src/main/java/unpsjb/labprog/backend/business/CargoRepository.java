@@ -14,4 +14,7 @@ public interface CargoRepository extends CrudRepository<Cargo, Long>, PagingAndS
 
     @Query("SELECT c FROM Cargo c WHERE UPPER(c.nombre) LIKE ?1")
     List<Cargo> search(String term);
+
+    @Query("SELECT c FROM Cargo c WHERE c.division.id = ?1")
+    List<Cargo> findByDivisionId(Long divisionId);
 }

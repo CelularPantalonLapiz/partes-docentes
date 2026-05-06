@@ -22,16 +22,10 @@ public class PersonaPresenter {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Object> create(@RequestBody Persona aPersona) {
-        if (aPersona.getDni() <= 0 || aPersona.getDni() == null) {
-            return Response.notFound("Para crear un docente debe ingresar un DNI válido.");
-        }
-
         personaService.save(aPersona);
         String mensaje = String.format("%s %s con DNI %d ingresado/a correctamente",
-                aPersona.getNombre(),
-                aPersona.getApellido(),
-                aPersona.getDni());
-        return Response.ok(mensaje);
+                aPersona.getNombre(), aPersona.getApellido(), aPersona.getDni());
+        return ResponseEntity.ok(new Response(200, mensaje, aPersona));
     }
 
     @RequestMapping(method = RequestMethod.PUT)
@@ -44,7 +38,7 @@ public class PersonaPresenter {
                 aPersona.getNombre(),
                 aPersona.getApellido(),
                 aPersona.getDni());
-        return Response.ok(mensaje);
+        return ResponseEntity.ok(new Response(200, mensaje, aPersona));
     }
 
     @RequestMapping(value = "/{dni}", method = RequestMethod.DELETE)

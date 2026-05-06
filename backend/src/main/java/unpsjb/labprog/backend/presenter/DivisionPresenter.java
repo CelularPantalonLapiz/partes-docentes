@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import unpsjb.labprog.backend.Response;
 import unpsjb.labprog.backend.business.DivisionService;
 import unpsjb.labprog.backend.model.Division;
+import unpsjb.labprog.backend.model.Turno;
 
 @RestController
 @RequestMapping("divisiones")

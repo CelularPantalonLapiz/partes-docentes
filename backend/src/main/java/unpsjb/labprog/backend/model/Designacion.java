@@ -1,6 +1,9 @@
 package unpsjb.labprog.backend.model;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,8 +24,14 @@ public class Designacion {
     private Long id;
 
     private String situacionRevista;
-    private LocalTime fechaInicio;
-    private LocalTime fechaFin;
+
+    @JsonProperty("fechaDesde")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fechaInicio;
+
+    @JsonProperty("fechaHasta")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fechaFin;
 
     @ManyToOne
     private Persona persona;

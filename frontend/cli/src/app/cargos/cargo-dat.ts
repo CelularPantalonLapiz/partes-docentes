@@ -42,4 +42,10 @@ export class CargoDat {
       `${this.cargosUrl}/search/${search}`,
     );
   }
+
+  buscarPorDivision(divisionId: number): Observable<DataPackage> {
+    return this.httpClient.get<DataPackage>(
+      `${this.cargosUrl}/division/${divisionId}`,
+    );
+  }
 }

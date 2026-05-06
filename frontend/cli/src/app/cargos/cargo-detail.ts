@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { CommonModule, Location } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { Router, RouterModule } from "@angular/router";
+import { Router, RouterModule, ActivatedRoute } from "@angular/router";
 import { Cargo } from "./cargo";
 import { CargoDat } from "./cargo-dat";
 import { Division } from "../division/disivion";
@@ -34,12 +34,27 @@ export class CargoDetail implements OnInit {
     private cargoService: CargoDat,
     private divisionService: DivisionDat,
     private router: Router,
+    private location: Location,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
     this.divisionService.all().subscribe((res) => {
       this.todasLasDivisiones = res.data as Division[];
     });
+    const id = this.route.snapshot.paramMap.get("id");
+    if (id && id !== "new") {
+      this.cargoService.get(Number(id)).subscribe({
+        next: (res) => {
+          this.cargo = res.data as Cargo;
+          if (this.cargo.division) {
+            const d = this.cargo.division;
+            this.busquedaDivision = `${d.anio}° ${d.numDivision}ra - ${d.orientacion}`;
+          }
+        },
+        error: (err) => this.location.back(),
+      });
+    }
   }
 
   filtrarDivisiones() {
@@ -66,10 +81,15 @@ export class CargoDetail implements OnInit {
   }
 
   guardar() {
+    if (!this.isFormValid()) {
+      return;
+    }
+
     const esCargoInstitucional =
       this.cargo.tipoDesignacion === TipoDesignacion.CARGO;
 
     const cargoParaGuardar: any = {
+      id: this.cargo.id,
       nombre: this.cargo.nombre,
       cargaHoraria: this.cargo.cargaHoraria,
       tipoDesignacion: this.cargo.tipoDesignacion,
@@ -86,13 +106,29 @@ export class CargoDetail implements OnInit {
           : null,
     };
 
-    console.log("JSON final sin acentos:", cargoParaGuardar);
+    console.log("Enviando cargo:", cargoParaGuardar);
+    const operacion = this.cargo.id
+      ? this.cargoService.update(cargoParaGuardar)
+      : this.cargoService.save(cargoParaGuardar);
 
-    this.cargoService.save(cargoParaGuardar).subscribe({
-      next: () => this.router.navigate(["/cargos"]),
+    operacion.subscribe({
+      next: () => {
+        console.log("¡Éxito!");
+        this.router.navigate(["/cargos"]);
+      },
       error: (err) => {
-        console.error("El servidor sigue fallando:", err);
+        console.error("Error en el servidor:", err);
+        alert("No se pudo guardar el cargo. Revisá los logs de Docker.");
       },
     });
+  }
+
+  isFormValid(): boolean {
+    const esCargoInst = this.cargo.tipoDesignacion === TipoDesignacion.CARGO;
+    const nombreOk = this.cargo.nombre.trim().length > 0;
+    const cargaOk = this.cargo.cargaHoraria > 0;
+    const fechaOk = !!this.cargo.fechaDesde;
+    const divisionOk = esCargoInst || !!this.cargo.division;
+    return nombreOk && cargaOk && fechaOk && divisionOk;
   }
 }

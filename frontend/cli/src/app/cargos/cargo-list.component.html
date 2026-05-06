@@ -11,7 +11,7 @@
       <tr>
         <th class="border-dark">ID</th>
         <th class="border-dark">Nombre</th>
-        <th class="border-dark">División (ID)</th> <th class="border-dark">Tipo</th>
+        <th class="border-dark">División</th> <th class="border-dark">Tipo</th>
         <th class="border-dark">Carga Horaria</th>
         <th class="border-dark">Fecha Inicio</th>
         <th class="border-dark">Fecha Fin</th>
@@ -23,7 +23,7 @@
   <td class="border-dark">{{ cargo.id }}</td>
   <td class="border-dark">{{ cargo.nombre }}</td>
   <td class="border-dark">
-    {{ cargo.division ? (cargo.division.anio + '° ' + cargo.division.numDivision + 'ra') : 'Inst. (Sin división)' }}
+    {{ cargo.division ? (cargo.division.anio + '° ' + cargo.division.numDivision + 'ra') : '-' }}
   </td>
   
   <td class="border-dark">{{ cargo.tipoDesignacion }}</td>

@@ -1,0 +1,105 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <h2 class="fw-normal">{{ designacion.id ? 'Editar' : 'Nueva' }} Designación</h2>
+    
+    <div class="d-flex gap-2">
+      <button (click)="guardar()" [disabled]="!isFormValid()" 
+              class="btn btn-success rounded-pill px-4 shadow-sm border-dark border-2"
+              [style.opacity]="isFormValid() ? '1' : '0.5'">Guardar</button>
+      <button routerLink="/designaciones" class="btn btn-danger rounded-pill px-4 shadow-sm border-dark border-2" 
+              style="background-color: #d687a1;">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- SECCIÓN PERSONA -->
+  <div class="row mb-5 align-items-start">
+    <div class="col-md-4 position-relative">
+      <label class="bg-secondary text-white px-2 py-1 mb-1 rounded small d-block" style="width: 80px;">Persona</label>
+      <input type="text" [(ngModel)]="busquedaPersona" (input)="filtrarPersonas()" 
+             placeholder="Buscar por DNI o Apellido..." class="form-control border-dark border-2 rounded-0">
+      
+      <ul class="list-group position-absolute w-100 z-3 rounded-0 shadow" *ngIf="mostrarDropdownPersona && personasFiltradas.length > 0">
+        <li *ngFor="let p of personasFiltradas" (click)="seleccionarPersona(p)" 
+            class="list-group-item list-group-item-action bg-info text-white border-0 py-1" style="cursor: pointer;">
+          {{ p.dni }} - {{ p.apellido }}, {{ p.nombre }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-8 d-flex gap-5 mt-4" *ngIf="designacion.persona">
+      <div>
+        <label class="bg-secondary text-white px-3 rounded small d-block mb-1">DNI</label>
+        <span class="fs-5 text-primary fw-bold">{{ designacion.persona.dni }}</span>
+      </div>
+      <div>
+        <label class="bg-secondary text-white px-3 rounded small d-block mb-1">Nombre</label>
+        <span class="fs-5 text-primary fw-bold">{{ designacion.persona.nombre }}</span>
+      </div>
+      <div>
+        <label class="bg-secondary text-white px-3 rounded small d-block mb-1">Apellido</label>
+        <span class="fs-5 text-primary fw-bold">{{ designacion.persona.apellido }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN CARGO -->
+  <div class="row mb-4 align-items-start">
+    <div class="col-md-4 position-relative">
+      <label class="bg-secondary text-white px-2 py-1 mb-1 rounded small d-block" style="width: 80px;">Cargo</label>
+      <input type="text" [(ngModel)]="busquedaCargo" (input)="filtrarCargos()" 
+             placeholder="Buscar cargo..." class="form-control border-dark border-2 rounded-0">
+      
+      <ul class="list-group position-absolute w-100 z-3 rounded-0 shadow" *ngIf="mostrarDropdownCargo && cargosFiltrados.length > 0">
+        <li *ngFor="let c of cargosFiltrados" (click)="seleccionarCargo(c)" 
+            class="list-group-item list-group-item-action bg-info text-white border-0 py-1" style="cursor: pointer;">
+          {{ c.nombre }} {{ c.division ? '('+c.division.anio+'° '+c.division.numDivision+')' : '' }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-8 row g-3 mt-1" *ngIf="designacion.cargo">
+      <div class="col-md-4">
+        <label class="bg-secondary text-white px-3 rounded small d-block mb-1">Tipo</label>
+        <span class="fs-6 text-primary fw-bold">{{ designacion.cargo.tipoDesignacion }}</span>
+      </div>
+      <div class="col-md-4">
+        <label class="bg-secondary text-white px-3 rounded small d-block mb-1">Nombre</label>
+        <span class="fs-6 text-primary fw-bold">{{ designacion.cargo.nombre }}</span>
+      </div>
+      <div class="col-md-12 d-flex gap-4 mt-2">
+        <div class="text-center">
+          <label class="bg-secondary text-white px-2 rounded small d-block mb-1">Carga Horaria</label>
+          <span class="fs-5 text-primary">{{ designacion.cargo.cargaHoraria }} hs</span>
+        </div>
+        <div class="text-center">
+          <label class="bg-secondary text-white px-2 rounded small d-block mb-1">Año</label>
+          <span class="fs-5 text-primary">{{ designacion.cargo.division?.anio ? designacion.cargo.division.anio + '°' : '-' }}</span>
+        </div>
+        <div class="text-center">
+          <label class="bg-secondary text-white px-2 rounded small d-block mb-1">Número</label>
+          <span class="fs-5 text-primary">{{ designacion.cargo.division?.numDivision ? designacion.cargo.division.numDivision + '°' : '-' }}</span>
+        </div>
+        <div class="text-center">
+          <label class="bg-secondary text-white px-2 rounded small d-block mb-1">Turno</label>
+          <span class="fs-5 text-primary">{{ designacion.cargo.division?.turno || '-' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIGENCIAS -->
+  <div class="row g-4 mt-3">
+    <div class="col-md-4">
+      <div class="d-flex align-items-center">
+        <label class="bg-secondary text-white px-2 py-1 me-2 rounded small" style="width: 150px;">Vigencia Desde</label>
+        <input type="date" [(ngModel)]="designacion.fechaDesde" class="form-control border-dark border-2 rounded-0">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="d-flex align-items-center">
+        <label class="bg-secondary text-white px-2 py-1 me-2 rounded small" style="width: 150px;">Vigencia Hasta</label>
+        <input type="date" [(ngModel)]="designacion.fechaHasta" class="form-control border-dark border-2 rounded-0">
+      </div>
+    </div>
+  </div>
+</div>

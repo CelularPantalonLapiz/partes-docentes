@@ -37,12 +37,18 @@ case "$1" in
   mvn ) echo "Ejecutando Maven en servidor backend: $2"
     docker exec -t backend mvn $2
     ;;
-  test ) echo "Testing"
-    docker compose run --rm testing
+  test ) 
+    echo "--- Ejecutando TODOS los Tests E2E (Node.js) ---"
+    docker compose run --rm testing npx cucumber-js 
     ;;
   staging ) echo "Cargando staging $2"
     cat ./staging/$2.sql | docker exec -i database psql -q -U APP -d labprog
     ;;
+  reset-db ) 
+    echo "Limpiando tablas de la base de datos..."
+    docker exec -it database psql -U APP -d labprog -c "TRUNCATE TABLE cargo, persona, division RESTART IDENTITY CASCADE;"
+    ;;
   * ) echo "Opción inválida."
       ;;
+
 esac

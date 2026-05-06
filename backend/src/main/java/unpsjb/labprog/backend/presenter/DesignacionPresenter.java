@@ -4,8 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import unpsjb.labprog.backend.Response;
+import unpsjb.labprog.backend.business.CargoService;
 import unpsjb.labprog.backend.business.DesignacionService;
+import unpsjb.labprog.backend.business.PersonaService;
+import unpsjb.labprog.backend.model.Cargo;
 import unpsjb.labprog.backend.model.Designacion;
+import unpsjb.labprog.backend.model.Persona;
+import unpsjb.labprog.backend.model.TipoDesignacion;
 
 @RestController
 @RequestMapping("designaciones")
@@ -13,6 +18,12 @@ public class DesignacionPresenter {
 
     @Autowired
     private DesignacionService service;
+
+    @Autowired
+    private PersonaService personaService;
+
+    @Autowired
+    private CargoService cargoService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Object> findAll() {
@@ -24,7 +35,35 @@ public class DesignacionPresenter {
         if (aDesignacion.getId() != null && aDesignacion.getId() != 0) {
             return Response.notFound("Error: No se puede crear una designación con un ID definido.");
         }
-        return Response.ok(service.save(aDesignacion));
+
+        Persona p = personaService.findByDni(aDesignacion.getPersona().getDni());
+        Cargo c = cargoService.findById(aDesignacion.getCargo().getId());
+        if (p == null || c == null) {
+            return ResponseEntity.ok(new Response(400, "Error: Persona o Cargo no encontrados.", null));
+        }
+        aDesignacion.setPersona(p);
+        long asignacionesPrevias = service.countByCargo(c);
+        service.save(aDesignacion);
+        String msg = "";
+        String nombreCompleto = p.getNombre() + " " + p.getApellido();
+
+        if (TipoDesignacion.ESPACIO_CURRICULAR.equals(c.getTipo())) {
+
+            String turnoFormateado = c.getDivision().getTurno().toString().toLowerCase();
+            turnoFormateado = turnoFormateado.substring(0, 1).toUpperCase() + turnoFormateado.substring(1);
+            if (turnoFormateado.equals("Manana"))
+                turnoFormateado = "Mañana";
+
+            msg = String.format("%s ha sido designado/a a la asignatura %s a la división %dº %dº turno %s exitosamente",
+                    nombreCompleto, c.getNombre(),
+                    c.getDivision().getAnio(), c.getDivision().getNumDivision(), turnoFormateado);
+        } else {
+            String tituloParaMensaje = (asignacionesPrevias > 0) ? "Auxiliar" : c.getNombre();
+
+            msg = String.format("%s ha sido designado/a como %s exitosamente",
+                    nombreCompleto, tituloParaMensaje);
+        }
+        return ResponseEntity.ok(new Response(200, msg, aDesignacion));
     }
 
     @RequestMapping(method = RequestMethod.PUT)

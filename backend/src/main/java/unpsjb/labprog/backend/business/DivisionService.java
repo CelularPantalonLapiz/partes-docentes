@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import unpsjb.labprog.backend.model.Division;
+import unpsjb.labprog.backend.model.Turno;
 
 @Service
 public class DivisionService {
@@ -44,4 +45,10 @@ public class DivisionService {
     public List<Division> search(String term) {
         return divisionRepository.search("%" + term + "%");
     }
+
+    public Division findByCaracteristicas(int anio, int numDivision, Turno turno) {
+        return divisionRepository.findByCaracteristicas(anio, numDivision,
+                turno).orElse(null);
+    }
+
 }

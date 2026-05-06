@@ -14,6 +14,7 @@ import unpsjb.labprog.backend.model.Division;
 
 @Service
 public class CargoService {
+
     @Autowired
     private CargoRepository repository;
     @Autowired
@@ -29,7 +30,8 @@ public class CargoService {
     public Cargo save(Cargo cargo) {
         if (cargo.getDivision() != null && cargo.getDivision().getId() != null) {
             Division division = divisionRepository.findById(cargo.getDivision().getId())
-                    .orElseThrow(() -> new RuntimeException("División no encontrada"));
+                    .orElse(null);
+
             cargo.setDivision(division);
         }
         return repository.save(cargo);
@@ -51,4 +53,9 @@ public class CargoService {
     public List<Cargo> search(String term) {
         return repository.search("%" + term.toUpperCase() + "%");
     }
+
+    public List<Cargo> findByDivision(Long divisionId) {
+        return repository.findByDivisionId(divisionId);
+    }
+
 }

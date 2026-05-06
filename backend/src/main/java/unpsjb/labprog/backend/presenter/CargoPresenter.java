@@ -1,6 +1,7 @@
 package unpsjb.labprog.backend.presenter;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import unpsjb.labprog.backend.Response;
 import unpsjb.labprog.backend.business.CargoService;
 import unpsjb.labprog.backend.model.Cargo;
+import unpsjb.labprog.backend.model.TipoDesignacion;
 
 @RestController
 @RequestMapping("cargos")
@@ -29,7 +31,35 @@ public class CargoPresenter {
         if (aCargo.getId() != null && aCargo.getId() != 0) {
             return Response.notFound("Error: No se puede crear un cargo con un ID ya definido.");
         }
-        return Response.ok(service.save(aCargo));
+
+        if (aCargo.getTipo() == TipoDesignacion.CARGO && aCargo.getDivision() != null) {
+            return new ResponseEntity<>(
+                    new Response(501, "Cargo de " + aCargo.getNombre() + " es CARGO y no corresponde asignar división",
+                            null),
+                    HttpStatus.valueOf(501));
+        }
+
+        if (aCargo.getTipo() == TipoDesignacion.ESPACIO_CURRICULAR && aCargo.getDivision() == null) {
+            return new ResponseEntity<>(
+                    new Response(501, "Espacio Curricular " + aCargo.getNombre() + " falta asignar división", null),
+                    HttpStatus.valueOf(501));
+        }
+        aCargo.setDivision(aCargo.getDivision());
+        Cargo guardado = service.save(aCargo);
+
+        String msg;
+        if (guardado.getTipo() == TipoDesignacion.CARGO) {
+            String nombreCorto = guardado.getNombre().split(" ")[0];
+            msg = "Cargo de " + nombreCorto + " ingresado correctamente";
+        } else {
+            msg = String.format("Espacio Curricular %s para la división %dº %dº Turno %s ingresado correctamente",
+                    guardado.getNombre(),
+                    guardado.getDivision().getAnio(),
+                    guardado.getDivision().getNumDivision(),
+                    capitalizar(guardado.getDivision().getTurno().toString()));
+        }
+
+        return ResponseEntity.ok(new Response(200, msg, null));
     }
 
     @RequestMapping(method = RequestMethod.PUT)
@@ -61,5 +91,19 @@ public class CargoPresenter {
     @RequestMapping(value = "/search/{term}", method = RequestMethod.GET)
     public ResponseEntity<Object> search(@PathVariable("term") String term) {
         return Response.ok(service.search(term));
+    }
+
+    @RequestMapping(value = "/division/{divisionId}", method = RequestMethod.GET)
+    public ResponseEntity<Object> findByDivision(@PathVariable("divisionId") Long divisionId) {
+        return Response.ok(service.findByDivision(divisionId));
+    }
+
+    private String capitalizar(String s) {
+        if (s == null)
+            return "";
+        String lower = s.toLowerCase().replace("manana", "Mañana");
+        if (lower.equals("mañana"))
+            return "Mañana";
+        return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
     }
 }

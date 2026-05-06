@@ -47,6 +47,16 @@ services:
     tty: true
     volumes:
       - ./frontend:/home/node
+  
+  testing:
+    build:
+      context: ./testing
+    container_name: testing
+    depends_on:
+      - backend
+    volumes:
+      - ./testing:/app
+      - /app/node_modules
 
 volumes:
   postgres:

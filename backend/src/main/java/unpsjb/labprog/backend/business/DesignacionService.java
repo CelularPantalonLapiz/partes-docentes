@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import unpsjb.labprog.backend.model.Cargo;
 import unpsjb.labprog.backend.model.Designacion;
 
 @Service
@@ -41,5 +43,9 @@ public class DesignacionService {
 
     public List<Designacion> search(String term) {
         return repository.search("%" + term.toUpperCase() + "%");
+    }
+
+    public long countByCargo(Cargo cargo) {
+        return repository.countByCargo(cargo);
     }
 }
