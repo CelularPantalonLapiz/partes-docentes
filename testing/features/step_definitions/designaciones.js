@@ -32,8 +32,8 @@ Given(/^que se asigna al cargo\s+con tipo de designación (.+) y (.+)$/, functio
 });
 
 Given(/^si es espacio curricular asignada a la división\s*(.*)$/, function (resto) {
-    const texto = resto.replace(/"/g, "").trim();
-    
+    //const texto = resto.replace(/"/g, "").trim();
+    const texto = (resto || "").replace(/"/g, "").trim();
     const match = texto.match(/(\d+)\s+(\d+)\s+(.+)/);
     
     if (match) {
@@ -62,8 +62,6 @@ Given(/^si es espacio curricular asignada a la división\s*(.*)$/, function (res
 });
 
 Given(/^se designa por el período (\S+)\s*(\S*)$/, function (desde, hasta) {
-    ctx.payload.situacionRevista = "TITULAR"; 
-
-    ctx.payload.fechaDesde = desde; 
+    ctx.payload.fechaDesde = desde;
     ctx.payload.fechaHasta = hasta === "" ? null : hasta;
 });

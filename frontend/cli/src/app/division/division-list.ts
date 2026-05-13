@@ -46,39 +46,37 @@ export class DivisionList implements OnInit {
   }
 
   remove(division: Division): void {
-    // 1. Buscamos si hay cargos usando esta división
     this.cargoService.buscarPorDivision(division.id).subscribe((res) => {
       const cargosRelacionados = res.data as any[];
 
       if (cargosRelacionados.length > 0) {
-        // 2. Si hay cargos, extraemos los IDs y mostramos el error
-        const ids = cargosRelacionados.map((c) => c.id).join(", ");
-        const mensajeExtra = `División: ${division.anio}° ${division.numDivision}ra ${division.turno} - ${division.orientacion}.`;
-
+        const usos = cargosRelacionados.map(
+          (c) => `Cargo: ${c.nombre} (ID: ${c.id})`,
+        );
         this.modalLogic
           .confirm(
             "No se puede eliminar",
-            mensajeExtra,
-            `Esta división está siendo utilizada por los cargos con ID: ${ids}`,
+            `La división ${division.anio}° ${division.numDivision}ra turno ${division.turno} no puede ser borrada porque está asignada a:`,
+            "Debe eliminar o reasignar estos cargos antes de borrar la división.",
+            usos,
           )
-          .catch(() => {}); // El catch es para cuando cierren el modal de error
+          .catch(() => {});
       } else {
-        // 3. Si no hay cargos, procedemos con el borrado normal
         this.modalLogic
           .confirm(
             "Eliminar división",
-            "¿Seguro?",
+            `¿Está seguro de eliminar la división ${division.anio}° ${division.numDivision}ra?`,
             "Esta acción no se puede deshacer.",
           )
           .then(() => {
             this.divisionService
               .remove(division.id)
               .subscribe(() => this.getDivisions());
-          });
+          })
+          .catch(() => {});
       }
     });
   }
-
   onPageChangeRequested(page: number): void {
     this.currentPage = page;
     this.getDivisions();

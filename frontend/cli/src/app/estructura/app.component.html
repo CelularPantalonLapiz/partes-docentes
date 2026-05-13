@@ -69,6 +69,30 @@
       {{ router.url.endsWith('personas') ? 'Listar' : (router.url.includes('new') ? 'Nueva' : 'Editar') }}
     </span>
   </ng-container>
+  <ng-container *ngIf="router.url.includes('divisiones')">
+  <i class="fa fa-chevron-right mx-2 small text-dark"></i>
+  <a routerLink="/divisiones" class="text-primary text-decoration-none">Divisiones</a>
+  <i class="fa fa-chevron-right mx-2 small text-dark"></i>
+  <span class="text-dark">
+    {{ router.url.endsWith('divisiones') ? 'Listar' : (router.url.includes('new') ? 'Nueva' : 'Editar') }}
+  </span>
+</ng-container>
+<ng-container *ngIf="router.url.includes('cargos')">
+  <i class="fa fa-chevron-right mx-2 small text-dark"></i>
+  <a routerLink="/cargos" class="text-primary text-decoration-none">Cargos</a>
+  <i class="fa fa-chevron-right mx-2 small text-dark"></i>
+  <span class="text-dark">
+    {{ router.url.endsWith('cargos') ? 'Listar' : (router.url.includes('new') ? 'Nueva' : 'Editar') }}
+  </span>
+</ng-container>
+<ng-container *ngIf="router.url.includes('designaciones')">
+  <i class="fa fa-chevron-right mx-2 small text-dark"></i>
+  <a routerLink="/designaciones" class="text-primary text-decoration-none">Designaciones</a>
+  <i class="fa fa-chevron-right mx-2 small text-dark"></i>
+  <span class="text-dark">
+    {{ router.url.endsWith('designaciones') ? 'Listar' : (router.url.includes('new') ? 'Nueva' : 'Editar') }}
+  </span>
+</ng-container>
 
   <ng-container *ngIf="router.url === '/' || router.url === '/home'">
     <i class="fa fa-chevron-right mx-2 small text-dark"></i>

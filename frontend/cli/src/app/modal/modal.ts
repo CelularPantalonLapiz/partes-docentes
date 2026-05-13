@@ -12,7 +12,6 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
       <button
         type="button"
         class="btn-close"
-        aria-describedby="modal-title"
         (click)="modal.dismiss()"
       ></button>
     </div>
@@ -20,6 +19,16 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
       <p>
         <strong>{{ message }}</strong>
       </p>
+
+      <ul *ngIf="items.length > 0" class="list-group mb-3">
+        <li
+          *ngFor="let item of items"
+          class="list-group-item list-group-item-danger py-1"
+        >
+          {{ item }}
+        </li>
+      </ul>
+
       <p *ngIf="description">
         <strong>{{ description }}</strong>
       </p>
@@ -30,9 +39,14 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
         class="btn btn-outline-secondary"
         (click)="modal.dismiss()"
       >
-        Cancelar
+        {{ items.length > 0 ? "Cerrar" : "Cancelar" }}
       </button>
-      <button type="button" class="btn btn-danger" (click)="modal.close()">
+      <button
+        *ngIf="items.length === 0"
+        type="button"
+        class="btn btn-danger"
+        (click)="modal.close()"
+      >
         Aceptar
       </button>
     </div>
@@ -42,5 +56,6 @@ export class Modal {
   title = "";
   message = "";
   description = "";
+  items: string[] = [];
   constructor(public modal: NgbActiveModal) {}
 }

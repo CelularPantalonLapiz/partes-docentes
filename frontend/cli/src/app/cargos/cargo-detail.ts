@@ -129,6 +129,11 @@ export class CargoDetail implements OnInit {
     const cargaOk = this.cargo.cargaHoraria > 0;
     const fechaOk = !!this.cargo.fechaDesde;
     const divisionOk = esCargoInst || !!this.cargo.division;
-    return nombreOk && cargaOk && fechaOk && divisionOk;
+    let fechasCoherentes = true;
+    if (this.cargo.fechaDesde && this.cargo.fechaHasta) {
+      fechasCoherentes = this.cargo.fechaDesde <= this.cargo.fechaHasta;
+    }
+
+    return nombreOk && cargaOk && fechaOk && divisionOk && fechasCoherentes;
   }
 }

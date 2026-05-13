@@ -132,10 +132,38 @@ export class DesignacionDetail implements OnInit {
   }
 
   isFormValid(): boolean {
-    return (
+    const camposBasicosOk =
       !!this.designacion.persona &&
       !!this.designacion.cargo &&
-      !!this.designacion.fechaDesde
-    );
+      !!this.designacion.fechaDesde;
+
+    if (!camposBasicosOk) return false;
+
+    const fechasConsistentes =
+      !this.designacion.fechaHasta ||
+      this.designacion.fechaDesde <= this.designacion.fechaHasta;
+    const vigenciaCargoOk = this.isVigenciaValida();
+    return fechasConsistentes && vigenciaCargoOk;
+  }
+
+  isVigenciaValida(): boolean {
+    if (!this.designacion.cargo || !this.designacion.fechaDesde) return true;
+
+    const cargo = this.designacion.cargo;
+
+    const inicioOk = this.designacion.fechaDesde >= cargo.fechaDesde;
+
+    let finOk = true;
+    if (cargo.fechaHasta) {
+      const inicioDentro = this.designacion.fechaDesde <= cargo.fechaHasta;
+
+      const finDentro =
+        !this.designacion.fechaHasta ||
+        this.designacion.fechaHasta <= cargo.fechaHasta;
+
+      finOk = inicioDentro && finDentro;
+    }
+
+    return inicioOk && finOk;
   }
 }

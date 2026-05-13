@@ -50,4 +50,10 @@ export class DesignacionDat {
       `${this.designacionesUrl}/search/${search}`,
     );
   }
+
+  getOcupantes(id: number): Observable<DataPackage> {
+    return this.httpClient.get<DataPackage>(
+      `${this.designacionesUrl}/${id}/ocupantes`,
+    );
+  }
 }

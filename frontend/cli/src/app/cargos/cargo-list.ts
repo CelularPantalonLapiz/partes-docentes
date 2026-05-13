@@ -6,6 +6,7 @@ import { CargoDat } from "./cargo-dat";
 import { ResultsPage } from "../results-page";
 import { Pagination } from "../pagination/pagination";
 import { ModalLogic } from "../modal/modal-logic";
+import { DesignacionDat } from "../designacion/designacion-dat";
 
 @Component({
   selector: "app-cargo-list",
@@ -27,6 +28,7 @@ export class CargoListComponent implements OnInit {
   constructor(
     private cargoDat: CargoDat,
     private modalLogic: ModalLogic,
+    private designacionesDat: DesignacionDat,
   ) {}
 
   ngOnInit(): void {
@@ -44,22 +46,41 @@ export class CargoListComponent implements OnInit {
     this.listarCargos();
   }
 
-  borrarCargo(id: number): void {
-    this.modalLogic
-      .confirm(
-        "Eliminar cargo",
-        "¿Seguro?",
-        "Esta acción no se puede deshacer.",
-      )
-      .then(() => {
-        this.cargoDat.remove(id).subscribe({
-          next: () => {
-            this.listarCargos();
-            console.log("Cargo eliminado");
-          },
-          error: (err) => console.error("Error al borrar", err),
-        });
-      })
-      .catch(() => {});
+  borrarCargo(cargo: Cargo): void {
+    this.designacionesDat.all().subscribe((pkg) => {
+      const designaciones = pkg.data as any[];
+      const usos = designaciones
+        .filter((d) => d.cargo.id === cargo.id)
+        .map(
+          (d) =>
+            `Designado/a: ${d.persona.apellido}, ${d.persona.nombre} (DNI: ${d.persona.dni})`,
+        );
+
+      if (usos.length > 0) {
+        this.modalLogic
+          .confirm(
+            "No se puede eliminar",
+            `El cargo "${cargo.nombre}" no puede ser borrado porque ya tiene personal designado:`,
+            "Debe dar de baja estas designaciones antes de borrar el cargo.",
+            usos,
+          )
+          .catch(() => {});
+      } else {
+        this.modalLogic
+          .confirm(
+            "Eliminar cargo",
+            `¿Está seguro de eliminar el cargo "${cargo.nombre}"?`,
+            "Esta acción no se puede deshacer.",
+          )
+          .then(() => {
+            if (cargo.id) {
+              this.cargoDat
+                .remove(cargo.id)
+                .subscribe(() => this.listarCargos());
+            }
+          })
+          .catch(() => {});
+      }
+    });
   }
 }

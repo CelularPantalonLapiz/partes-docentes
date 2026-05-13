@@ -32,13 +32,13 @@
   <td class="border-dark">{{ cargo.fechaHasta ? (cargo.fechaHasta | date:'dd/MM/yyyy') : '-' }}</td>
   
   <td class="text-center border-dark">
-    <a [routerLink]="['/cargos', cargo.id]" class="text-warning fs-5 me-3" title="Editar" style="cursor: pointer;">
-      <i class="fa-solid fa-pencil"></i>
-    </a>
-    <a (click)="cargo.id && borrarCargo(cargo.id)" class="text-danger fs-5" style="cursor: pointer;" title="Borrar">
-      <i class="fa-solid fa-trash-can"></i>
-    </a>
-  </td>
+  <a [routerLink]="['/cargos', cargo.id]" class="text-warning fs-5 me-3" title="Editar" style="cursor: pointer;">
+    <i class="fa-solid fa-pencil"></i>
+  </a>
+  <a (click)="borrarCargo(cargo)" class="text-danger fs-5" style="cursor: pointer;" title="Borrar">
+    <i class="fa-solid fa-trash-can"></i>
+  </a>
+</td>
 </tr>
 </tbody>
   </table>

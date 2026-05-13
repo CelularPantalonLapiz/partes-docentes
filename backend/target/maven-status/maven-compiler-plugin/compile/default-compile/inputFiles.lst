@@ -10,6 +10,7 @@
 /app/src/main/java/unpsjb/labprog/backend/business/PersonaRepository.java
 /app/src/main/java/unpsjb/labprog/backend/BackendApplication.java
 /app/src/main/java/unpsjb/labprog/backend/model/TipoDesignacion.java
+/app/src/main/java/unpsjb/labprog/backend/model/SituacionRevista.java
 /app/src/main/java/unpsjb/labprog/backend/model/Division.java
 /app/src/main/java/unpsjb/labprog/backend/business/LicenciaRepository.java
 /app/src/main/java/unpsjb/labprog/backend/model/Persona.java

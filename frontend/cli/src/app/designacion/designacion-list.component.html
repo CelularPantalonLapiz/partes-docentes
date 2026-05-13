@@ -9,34 +9,58 @@
   <table class="table table-bordered border-dark border-2 shadow-sm">
     <thead class="table-light border-dark">
       <tr>
+        <th class="border-dark">ID</th>
         <th class="border-dark">Persona (DNI)</th>
         <th class="border-dark">Cargo</th>
         <th class="border-dark">División</th>
         <th class="border-dark">Turno</th>
         <th class="border-dark">Vigencia desde</th>
         <th class="border-dark">Vigencia hasta</th>
+        <th class="border-dark">Situación</th> 
         <th class="text-center border-dark">Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let d of resultsPage.content" class="align-middle">
+        <td class="border-dark">{{ d.id }}</td>
+        
         <td class="border-dark">
           <a (click)="verPersona(d.persona)" class="text-primary decoration-none" style="cursor: pointer;">
             {{ d.persona.dni }}
           </a>
         </td>
+
         <td class="border-dark">{{ d.cargo.nombre }}</td>
+        
         <td class="border-dark">
           {{ d.cargo.division ? (d.cargo.division.anio + '° ' + d.cargo.division.numDivision + 'ra') : '-' }}
         </td>
+        
         <td class="border-dark">{{ d.cargo.division ? d.cargo.division.turno : '-' }}</td>
+        
         <td class="border-dark">{{ d.fechaDesde | date:'dd/MM/yyyy' }}</td>
         <td class="border-dark">{{ d.fechaHasta ? (d.fechaHasta | date:'dd/MM/yyyy') : '-' }}</td>
         
+        <td class="border-dark fw-bold">
+          <span *ngIf="d.situacionRevista === 'TITULAR'" class="text-success">
+            {{ d.situacionRevista }}
+          </span>
+
+          <a *ngIf="d.situacionRevista !== 'TITULAR'" 
+             (click)="verOcupantes(d)"
+             style="cursor: pointer; text-decoration: underline;"
+             [ngClass]="{
+               'text-warning': d.situacionRevista === 'SUPLENTE', 
+               'text-danger': d.situacionRevista === 'ERROR'
+             }">
+            {{ d.situacionRevista }}
+          </a>
+        </td>
+
         <td class="text-center border-dark">
           <a [routerLink]="['/designaciones', d.id]" class="text-warning fs-5 me-3" title="Editar">
             <i class="fa-solid fa-pencil"></i>
-           </a>
+          </a>
           <a (click)="d.id && borrar(d.id)" class="text-danger fs-5" style="cursor: pointer;" title="Borrar">
             <i class="fa-solid fa-trash-can"></i>
           </a>
@@ -44,12 +68,20 @@
       </tr>
     </tbody>
   </table>
+
   <div class="d-flex justify-content-center mt-4">
+
     <app-pagination
-      [totalPages]="resultsPage.totalPages"
-      [currentPage]="currentPage"
-      [number]="resultsPage.number"
-      (pageChangeResquest)="listar()">
-    </app-pagination>
+
+  [totalPages]="resultsPage.totalPages"
+
+  [currentPage]="currentPage"
+
+  [number]="resultsPage.number"
+
+  (pageChangeResquest)="onPageChangeRequested($event)">
+
+</app-pagination>
+
   </div>
 </div>

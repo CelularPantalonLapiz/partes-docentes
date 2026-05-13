@@ -41,18 +41,28 @@
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="mb-3 d-flex align-items-center">
-        <label class="bg-secondary text-white px-2 py-1 me-2 rounded small" style="width: 120px;">Vigencia Desde</label>
-        <input type="date" [(ngModel)]="cargo.fechaDesde" class="form-control border-dark border-2 rounded-0">
-      </div>
+    <div class="row g-4">
+  <div class="col-md-6">
+    <div class="mb-3 d-flex align-items-center">
+      <label class="bg-secondary text-white px-2 py-1 me-2 rounded small" style="width: 120px;">Vigencia Desde</label>
+      <input type="date" [(ngModel)]="cargo.fechaDesde" class="form-control border-dark border-2 rounded-0">
     </div>
-    <div class="col-md-6">
-      <div class="mb-3 d-flex align-items-center">
-        <label class="bg-secondary text-white px-2 py-1 me-2 rounded small" style="width: 120px;">Vigencia Hasta</label>
-        <input type="date" [(ngModel)]="cargo.fechaHasta" class="form-control border-dark border-2 rounded-0">
-      </div>
+  </div>
+  <div class="col-md-6">
+    <div class="mb-3 d-flex align-items-center">
+      <label class="bg-secondary text-white px-2 py-1 me-2 rounded small" style="width: 120px;">Vigencia Hasta</label>
+      <input type="date" [(ngModel)]="cargo.fechaHasta" class="form-control border-dark border-2 rounded-0">
     </div>
+  </div>
+
+  <div class="col-12" *ngIf="cargo.fechaDesde && cargo.fechaHasta && cargo.fechaDesde > cargo.fechaHasta">
+    <div class="text-danger small fw-bold mt-1">
+      <i class="fa-solid fa-circle-exclamation"></i> 
+      La fecha de fin no puede ser anterior a la de inicio.
+    </div>
+  </div>
+  
+  </div>
 
     <div class="col-12 mt-4">
       <div class="d-flex align-items-start gap-5">

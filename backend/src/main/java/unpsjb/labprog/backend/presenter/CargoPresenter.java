@@ -39,6 +39,11 @@ public class CargoPresenter {
                     HttpStatus.valueOf(501));
         }
 
+        if (!fechasCheck(aCargo)) {
+            return ResponseEntity
+                    .ok(new Response(400, "Error: La fecha de inicio no puede ser posterior a la de fin.", null));
+        }
+
         if (aCargo.getTipo() == TipoDesignacion.ESPACIO_CURRICULAR && aCargo.getDivision() == null) {
             return new ResponseEntity<>(
                     new Response(501, "Espacio Curricular " + aCargo.getNombre() + " falta asignar división", null),
@@ -67,6 +72,11 @@ public class CargoPresenter {
         if (aCargo.getId() == null || aCargo.getId() <= 0) {
             return Response.notFound("Error: Debe ingresar un ID válido para actualizar el cargo.");
         }
+        if (!fechasCheck(aCargo)) {
+            return ResponseEntity
+                    .ok(new Response(400, "Error: La fecha de inicio no puede ser posterior a la de fin.", null));
+        }
+
         return Response.ok(service.save(aCargo));
     }
 
@@ -105,5 +115,14 @@ public class CargoPresenter {
         if (lower.equals("mañana"))
             return "Mañana";
         return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
+    }
+
+    private boolean fechasCheck(Cargo cargo) {
+        if (cargo.getFechaInicio() == null)
+            return false;
+        if (cargo.getFechaFin() == null)
+            return true;
+
+        return !cargo.getFechaInicio().isAfter(cargo.getFechaFin());
     }
 }

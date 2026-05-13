@@ -59,4 +59,31 @@ export class DesignacionListComponent implements OnInit {
       })
       .catch(() => {});
   }
+
+  onPageChangeRequested(page: number): void {
+    this.currentPage = page;
+    this.listar();
+  }
+
+  verOcupantes(d: Designacion): void {
+    if (d.situacionRevista === "TITULAR") return;
+
+    this.designacionDat.getOcupantes(d.id).subscribe((pkg) => {
+      const ocupantes = pkg.data as Designacion[];
+      let info = "";
+      const titular = ocupantes.find((o) => o.situacionRevista === "TITULAR");
+      const suplente = ocupantes.find((o) => o.situacionRevista === "SUPLENTE");
+
+      if (d.situacionRevista === "SUPLENTE") {
+        info = titular
+          ? `Titular: ${titular.persona.nombre} ${titular.persona.apellido}`
+          : "No se encontró el titular activo.";
+      } else if (d.situacionRevista === "ERROR") {
+        info = `Titular: ${titular ? titular.persona.nombre + " " + titular.persona.apellido : "N/C"}\n`;
+        info += `Suplente: ${suplente ? suplente.persona.nombre + " " + suplente.persona.apellido : "N/C"}`;
+      }
+
+      this.modalLogic.confirm(`Ocupantes del Cargo`, info, "");
+    });
+  }
 }
