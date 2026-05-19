@@ -102,14 +102,35 @@ public class DesignacionPresenter {
         if (aDesignacion.getId() == null || aDesignacion.getId() <= 0) {
             return Response.notFound("Error: Debe ingresar un ID válido para actualizar.");
         }
-        if (fechaCheck(aDesignacion) == false) {
-            return ResponseEntity.ok(new Response(400, "Error: Asignar bien las fechas.", null));
-        }
-        if (vigenciaCheck(aDesignacion, aDesignacion.getCargo()) == false) {
-            return ResponseEntity.ok(new Response(400, "Error: Asignar las fechas en un lapso posible.", null));
+
+        Persona p = personaService.findByDni(aDesignacion.getPersona().getDni());
+        Cargo c = cargoService.findById(aDesignacion.getCargo().getId());
+
+        if (p == null || c == null) {
+            return ResponseEntity.ok(new Response(400, "Error: Persona o Cargo no encontrados.", null));
         }
 
-        return Response.ok(service.save(aDesignacion));
+        aDesignacion.setPersona(p);
+        aDesignacion.setCargo(c);
+
+        if (!fechaCheck(aDesignacion) || !vigenciaCheck(aDesignacion, c)) {
+            return ResponseEntity.ok(new Response(400, "Error: Verifique las fechas de vigencia.", null));
+        }
+
+        SituacionRevista situacion = service.buscarSolapamientoDesignaciones(c, aDesignacion);
+        aDesignacion.setSituacionRevista(situacion);
+
+        service.save(aDesignacion);
+
+        if (SituacionRevista.ERROR.equals(aDesignacion.getSituacionRevista())) {
+            String nombreCargo = c.getNombre();
+            String msgError = String.format("Error: %s tiene los cupos completos", nombreCargo);
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new Response(500, msgError, aDesignacion));
+        }
+
+        return Response.ok(aDesignacion, "Actualización exitosa");
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -139,6 +160,21 @@ public class DesignacionPresenter {
         solapados.removeIf(s -> s.getId().equals(id));
 
         return Response.ok(solapados);
+    }
+
+    @RequestMapping(value = "/search/{term}", method = RequestMethod.GET)
+    public ResponseEntity<Object> search(@PathVariable String term) {
+        return Response.ok(service.buscarGeneral(term));
+    }
+
+    @RequestMapping(value = "/errores", method = RequestMethod.GET)
+    public ResponseEntity<Object> findErrores() {
+        return Response.ok(service.getErroresRecientes());
+    }
+
+    @RequestMapping(value = "/aceptadas", method = RequestMethod.GET)
+    public ResponseEntity<Object> findAceptadas() {
+        return Response.ok(service.getAceptadas());
     }
 
     private boolean fechaCheck(Designacion designacion) {

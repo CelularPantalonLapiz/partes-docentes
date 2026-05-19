@@ -56,4 +56,8 @@ export class DesignacionDat {
       `${this.designacionesUrl}/${id}/ocupantes`,
     );
   }
+
+  getErrores(): Observable<DataPackage> {
+    return this.httpClient.get<DataPackage>(`${this.designacionesUrl}/errores`);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule, DatePipe } from "@angular/common";
 import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
 import { DesignacionDat } from "./designacion-dat";
 import { Designacion } from "./designacion";
 import { ResultsPage } from "../results-page";
@@ -10,7 +11,7 @@ import { Pagination } from "../pagination/pagination";
 @Component({
   selector: "app-designacion-list",
   standalone: true,
-  imports: [CommonModule, RouterModule, DatePipe, Pagination],
+  imports: [CommonModule, RouterModule, DatePipe, Pagination, FormsModule],
   templateUrl: "./designacion-list.component.html",
 })
 export class DesignacionListComponent implements OnInit {
@@ -23,6 +24,8 @@ export class DesignacionListComponent implements OnInit {
     last: true,
   };
   currentPage: number = 1;
+  busqueda: string = "";
+  viendoErrores: boolean = false;
 
   constructor(
     private designacionDat: DesignacionDat,
@@ -34,6 +37,7 @@ export class DesignacionListComponent implements OnInit {
   }
 
   listar(): void {
+    this.viendoErrores = false;
     this.designacionDat.byPage(this.currentPage, 10).subscribe((pkg) => {
       this.resultsPage = <ResultsPage<Designacion>>pkg.data;
     });
@@ -84,6 +88,27 @@ export class DesignacionListComponent implements OnInit {
       }
 
       this.modalLogic.confirm(`Ocupantes del Cargo`, info, "");
+    });
+  }
+
+  onSearch(): void {
+    this.viendoErrores = false;
+    if (this.busqueda.trim() === "") {
+      this.listar();
+      return;
+    }
+    this.designacionDat.search(this.busqueda).subscribe((pkg) => {
+      this.resultsPage.content = pkg.data as Designacion[];
+      this.resultsPage.totalPages = 1;
+    });
+  }
+
+  verSoloErrores(): void {
+    this.viendoErrores = true;
+    this.busqueda = "";
+    this.designacionDat.getErrores().subscribe((pkg) => {
+      this.resultsPage.content = pkg.data as Designacion[];
+      this.resultsPage.totalPages = 1;
     });
   }
 }

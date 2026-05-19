@@ -8,6 +8,7 @@ import { Persona } from "../persona/persona";
 import { PersonaDat } from "../persona/persona-dat";
 import { Cargo } from "../cargos/cargo";
 import { CargoDat } from "../cargos/cargo-dat";
+import { ModalLogic } from "../modal/modal-logic";
 
 @Component({
   selector: "app-designacion-detail",
@@ -24,6 +25,8 @@ export class DesignacionDetail implements OnInit {
     persona: undefined,
     cargo: undefined,
   };
+  huboError: boolean = false;
+  mensajeError: string = "";
 
   todasLasPersonas: Persona[] = [];
   personasFiltradas: Persona[] = [];
@@ -42,6 +45,7 @@ export class DesignacionDetail implements OnInit {
     private router: Router,
     private location: Location,
     private route: ActivatedRoute,
+    private modalLogic: ModalLogic,
   ) {}
 
   ngOnInit() {
@@ -104,6 +108,8 @@ export class DesignacionDetail implements OnInit {
 
   guardar() {
     if (!this.isFormValid()) return;
+    this.huboError = false;
+    this.mensajeError = "";
 
     const payload: any = {
       id: this.designacion.id,
@@ -126,8 +132,22 @@ export class DesignacionDetail implements OnInit {
 
     op.subscribe({
       next: () => this.router.navigate(["/designaciones"]),
-      error: (err) =>
-        alert("Error: " + (err.error?.message || "No se pudo actualizar")),
+      error: () => {
+        this.huboError = true;
+
+        const nombreCargo = this.designacion.cargo.nombre;
+        const desde = this.formatearFecha(this.designacion.fechaDesde);
+        const hasta = this.designacion.fechaHasta
+          ? this.formatearFecha(this.designacion.fechaHasta)
+          : "Indefinida";
+
+        this.mensajeError = `Error: ${nombreCargo} tiene los cupos completos para la fecha ${desde} a ${hasta}`;
+        this.modalLogic.confirm(
+          "Cupos Completos",
+          this.mensajeError,
+          "Se ha registrado el intento con estado ERROR en el sistema.",
+        );
+      },
     });
   }
 
@@ -165,5 +185,11 @@ export class DesignacionDetail implements OnInit {
     }
 
     return inicioOk && finOk;
+  }
+
+  private formatearFecha(fecha: string): string {
+    if (!fecha) return "-";
+    const [year, month, day] = fecha.split("-");
+    return `${day}/${month}/${year}`;
   }
 }

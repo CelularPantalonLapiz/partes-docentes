@@ -42,4 +42,17 @@ public interface DesignacionRepository
                         @Param("inicio") LocalDate inicio,
                         @Param("fin") LocalDate fin);
 
+        @Query("SELECT d FROM Designacion d WHERE d.situacionRevista = unpsjb.labprog.backend.model.SituacionRevista.ERROR ORDER BY d.id DESC")
+        List<Designacion> buscarErroresRecientes();
+
+        @Query("SELECT d FROM Designacion d WHERE UPPER(d.persona.apellido) LIKE :term OR UPPER(d.persona.nombre) LIKE :term OR CAST(d.persona.dni AS string) LIKE :term")
+        List<Designacion> buscarPorTermino(@Param("term") String term);
+
+        @Query("SELECT d FROM Designacion d WHERE d.situacionRevista != unpsjb.labprog.backend.model.SituacionRevista.ERROR")
+        List<Designacion> buscarAceptadas();
+
+        org.springframework.data.domain.Page<Designacion> findBySituacionRevistaNot(
+                        unpsjb.labprog.backend.model.SituacionRevista situacion,
+                        org.springframework.data.domain.Pageable pageable);
+
 }

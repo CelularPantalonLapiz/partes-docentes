@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import unpsjb.labprog.backend.model.Cargo;
 import unpsjb.labprog.backend.model.Designacion;
-import unpsjb.labprog.backend.model.Division;
 import unpsjb.labprog.backend.model.Persona;
 import unpsjb.labprog.backend.model.SituacionRevista;
 import unpsjb.labprog.backend.model.TipoDesignacion;
@@ -30,6 +29,23 @@ public class DesignacionService {
 
     @Transactional
     public Designacion save(Designacion designacion) {
+        Cargo cargo = designacion.getCargo();
+        SituacionRevista situacion = SituacionRevista.TITULAR;
+        if (cargo != null) {
+            situacion = buscarSolapamientoDesignacionesConFiltro(cargo, designacion);
+        }
+        if (situacion == SituacionRevista.ERROR && designacion.getId() != null) {
+            Designacion designacionError = new Designacion();
+            designacionError.setPersona(designacion.getPersona());
+            designacionError.setCargo(designacion.getCargo());
+            designacionError.setFechaInicio(designacion.getFechaInicio());
+            designacionError.setFechaFin(designacion.getFechaFin());
+            designacionError.setSituacionRevista(SituacionRevista.ERROR);
+            repository.save(designacionError);
+            designacion.setSituacionRevista(SituacionRevista.ERROR);
+            return designacion;
+        }
+        designacion.setSituacionRevista(situacion);
         return repository.save(designacion);
     }
 
@@ -43,7 +59,7 @@ public class DesignacionService {
     }
 
     public Page<Designacion> findByPage(int page, int size) {
-        return repository.findAll(PageRequest.of(page, size));
+        return repository.findBySituacionRevistaNot(SituacionRevista.ERROR, PageRequest.of(page, size));
     }
 
     public List<Designacion> search(String term) {
@@ -56,18 +72,15 @@ public class DesignacionService {
 
     public SituacionRevista buscarSolapamientoDesignaciones(Cargo c, Designacion designacion) {
         LocalDate fin = designacion.getFechaFin() != null ? designacion.getFechaFin() : LocalDate.of(9999, 12, 31);
-
         List<Designacion> solapados = repository.buscarSolapamientoDesignaciones(c.getId(),
                 designacion.getFechaInicio(), fin);
 
         if (solapados.size() == 0)
             return SituacionRevista.TITULAR;
-        if (TipoDesignacion.ESPACIO_CURRICULAR.equals(c.getTipo())) {
+        if (TipoDesignacion.ESPACIO_CURRICULAR.equals(c.getTipo()))
             return SituacionRevista.ERROR;
-        }
         if (solapados.size() == 1)
             return SituacionRevista.SUPLENTE;
-
         return SituacionRevista.ERROR;
     }
 
@@ -79,5 +92,40 @@ public class DesignacionService {
     public List<Designacion> getDesignacionesSolapa(Cargo c, Designacion designacion) {
         LocalDate fin = designacion.getFechaFin() != null ? designacion.getFechaFin() : LocalDate.of(9999, 12, 31);
         return repository.buscarSolapamientoDesignaciones(c.getId(), designacion.getFechaInicio(), fin);
+    }
+
+    public List<Designacion> getErroresRecientes() {
+        return repository.buscarErroresRecientes();
+    }
+
+    public List<Designacion> buscarGeneral(String term) {
+        return repository.buscarPorTermino("%" + term.toUpperCase() + "%");
+    }
+
+    public List<Designacion> getAceptadas() {
+        return repository.buscarAceptadas();
+    }
+
+    private SituacionRevista buscarSolapamientoDesignacionesConFiltro(Cargo c, Designacion designacion) {
+        LocalDate fin = designacion.getFechaFin() != null ? designacion.getFechaFin() : LocalDate.of(9999, 12, 31);
+
+        List<Designacion> solapados = repository.buscarSolapamientoDesignaciones(c.getId(),
+                designacion.getFechaInicio(), fin);
+
+        // Filtro fundamental: Si estamos editando un registro, evitamos que se choque
+        // consigo mismo
+        if (designacion.getId() != null) {
+            solapados.removeIf(d -> d.getId().equals(designacion.getId()));
+        }
+
+        if (solapados.size() == 0)
+            return SituacionRevista.TITULAR;
+        if (TipoDesignacion.ESPACIO_CURRICULAR.equals(c.getTipo())) {
+            return SituacionRevista.ERROR;
+        }
+        if (solapados.size() == 1)
+            return SituacionRevista.SUPLENTE;
+
+        return SituacionRevista.ERROR;
     }
 }
